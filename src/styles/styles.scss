@@ -1,0 +1,45 @@
+@use '@fontsource/montserrat/scss/mixins' as montserrat;
+
+@include montserrat.faces($directory: '@fontsource/montserrat/files/', $subsets: latin latin-ext, $weights: 400);
+
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* https://marcom.purdue.edu/our-brand/visual-identity/ */
+    background-color: #000;
+    color: #cfb991;
+    font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+    font-size: 8vw;
+    height: 56.25vw;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+@media (min-aspect-ratio: 16/9) {
+    body {
+        font-size: 14.222vh;
+        height: 100%;
+        margin: 0 auto;
+        width: 177.777vh;
+    }
+}
+
+h1 {
+    font-size: 120%;
+    letter-spacing: -0.005em;
+}
+
+h2 {
+    font-size: 80%;
+    letter-spacing: -0.02em;
+}
+
+body h1:first-child,
+body h2 {
+    margin-top: 0;
+}
