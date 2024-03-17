@@ -1,0 +1,10 @@
+<h2>Level Meter (AW/MP)</h2>
+<wac-prism language="javascript" ngPreserveWhitespaces
+    ><!-- htmlmin:ignore --><!-- prettier-ignore -->// in the class definition
+event = &lbrace; level: 0, peak: 0 &rbrace;;
+
+// inside the process function
+this.event.level = level;
+this.event.peak = peak;
+this.port.postMessage(this.event);<!-- htmlmin:ignore --></wac-prism
+>

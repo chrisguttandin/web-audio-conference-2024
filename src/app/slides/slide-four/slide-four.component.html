@@ -1,0 +1,8 @@
+<h2>Level Meter (Peak)</h2>
+<wac-prism language="javascript" ngPreserveWhitespaces
+    ><!-- htmlmin:ignore --><!-- prettier-ignore -->let value = 0;
+
+for (let i = 0; i &lt; channelData.length; i += 1) &lbrace;
+    value = Math.max(value, Math.abs(channelData[i]));
+&rbrace;<!-- htmlmin:ignore --></wac-prism
+>

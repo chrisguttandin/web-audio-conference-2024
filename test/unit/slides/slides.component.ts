@@ -12,7 +12,7 @@ describe('SlidesComponent', () => {
                 snapshot: {
                     url: [
                         {
-                            path: '2'
+                            path: '8'
                         }
                     ]
                 }
@@ -39,14 +39,14 @@ describe('SlidesComponent', () => {
 
             slidesComponent.handleKeyUp(keyboardEvent);
 
-            expect(router.navigate).toHaveBeenCalledWith(['1'], { relativeTo: activatedRoute });
+            expect(router.navigate).toHaveBeenCalledWith(['7'], { relativeTo: activatedRoute });
         });
 
         it('should navigate to the previous slide', () => {
             // @todo Constructing a real KeyboardEvent with a given keyCode seems to be impossible.
             slidesComponent.handleKeyUp(<KeyboardEvent>{ keyCode: 37 });
 
-            expect(router.navigate).toHaveBeenCalledWith(['1'], { relativeTo: activatedRoute });
+            expect(router.navigate).toHaveBeenCalledWith(['7'], { relativeTo: activatedRoute });
         });
 
         it('should navigate to the next slide', () => {
@@ -54,14 +54,14 @@ describe('SlidesComponent', () => {
 
             slidesComponent.handleKeyUp(keyboardEvent);
 
-            expect(router.navigate).toHaveBeenCalledWith(['3'], { relativeTo: activatedRoute });
+            expect(router.navigate).toHaveBeenCalledWith(['9'], { relativeTo: activatedRoute });
         });
 
         it('should navigate to the next slide', () => {
             // @todo Constructing a real KeyboardEvent with a given keyCode seems to be impossible.
             slidesComponent.handleKeyUp(<KeyboardEvent>{ keyCode: 39 });
 
-            expect(router.navigate).toHaveBeenCalledWith(['3'], { relativeTo: activatedRoute });
+            expect(router.navigate).toHaveBeenCalledWith(['9'], { relativeTo: activatedRoute });
         });
     });
 
@@ -73,7 +73,7 @@ describe('SlidesComponent', () => {
         it('should navigate to the next slide', () => {
             slidesComponent.handleSwipeLeft();
 
-            expect(router.navigate).toHaveBeenCalledWith(['3'], { relativeTo: activatedRoute });
+            expect(router.navigate).toHaveBeenCalledWith(['9'], { relativeTo: activatedRoute });
         });
     });
 
@@ -85,7 +85,7 @@ describe('SlidesComponent', () => {
         it('should navigate to the previous slide', () => {
             slidesComponent.handleSwipeRight();
 
-            expect(router.navigate).toHaveBeenCalledWith(['1'], { relativeTo: activatedRoute });
+            expect(router.navigate).toHaveBeenCalledWith(['7'], { relativeTo: activatedRoute });
         });
     });
 });

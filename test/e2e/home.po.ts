@@ -8,7 +8,7 @@ export class Home {
     }
 
     public getSubHeadline(): Locator {
-        return this._page.locator('wac-app h2');
+        return this._page.locator('wac-app h2:first-child');
     }
 
     public navigateTo(): Promise<null | Response> {

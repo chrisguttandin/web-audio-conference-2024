@@ -46,5 +46,5 @@ test('should go to the next slide', async ({ page }) => {
     await page.keyboard.press('ArrowRight');
     await page.waitForURL(/\/slides\/2$/);
 
-    await expect(home.getSubHeadline()).toHaveText('Slide 2');
+    await expect(home.getSubHeadline()).toHaveText('I like to use APIs in unintended creative ways');
 });

@@ -1,0 +1,79 @@
+import { ChangeDetectionStrategy, Component, HostListener, inject, signal } from '@angular/core';
+import { AudioInputService } from '../../audio-input.service';
+import { WindowService } from '../../window.service';
+// eslint-disable-next-line max-len
+import { AudioWorkletWebWorkerProcessorLevelMeterComponent } from '../audio-worklet-web-worker-processor-level-meter/audio-worklet-web-worker-processor-level-meter.component';
+
+@Component({
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [AudioWorkletWebWorkerProcessorLevelMeterComponent],
+    selector: 'wac-slide-twenty-four',
+    standalone: true,
+    templateUrl: './slide-twenty-four.component.html'
+})
+export class SlideTwentyFourComponent {
+    public levelSize = signal(7);
+
+    public peakSize = signal(12);
+
+    public smoothingTimeConstant = signal(0);
+
+    public sourceNode = signal<null | AudioNode>(null);
+
+    #audioInputService = inject(AudioInputService);
+
+    #windowService = inject(WindowService);
+
+    constructor() {
+        const { nativeWindow } = this.#windowService;
+
+        if (
+            nativeWindow !== null &&
+            !nativeWindow.matchMedia('(prefers-reduced-motion: reduce)').matches &&
+            nativeWindow.navigator.userActivation.isActive
+        ) {
+            this.#start();
+        }
+    }
+
+    @HostListener('document:keyup', ['$event']) public handleKeyUp(event: KeyboardEvent): void {
+        if (event.code !== undefined && event.code === 'KeyC') {
+            this.#click();
+        } else if (event.code !== undefined && event.code === 'KeyF') {
+            this.#freeze();
+        } else if (event.code !== undefined && event.code === 'KeyS') {
+            this.#start();
+        }
+    }
+
+    // eslint-disable-next-line @typescript-eslint/no-empty-function, class-methods-use-this, no-empty-function
+    #click = () => {};
+
+    // eslint-disable-next-line class-methods-use-this
+    #freeze() {
+        const now = performance.now();
+
+        while (performance.now() - now < 1000) {
+            // Just block anything else from happening.
+        }
+    }
+
+    #start() {
+        const sourceNode = this.#audioInputService.start();
+        const gainNode = new GainNode(sourceNode.context);
+        const waveShaperNode = new WaveShaperNode(sourceNode.context, { curve: [-1, 1] });
+
+        this.#click = () => {
+            const constantSourceNode = new ConstantSourceNode(sourceNode.context, { offset: 2 });
+            const { currentTime } = sourceNode.context;
+
+            constantSourceNode.connect(gainNode);
+            constantSourceNode.start(currentTime);
+            constantSourceNode.stop(currentTime + 1 / sourceNode.context.sampleRate);
+        };
+
+        sourceNode.connect(gainNode).connect(waveShaperNode);
+
+        this.sourceNode.set(waveShaperNode);
+    }
+}

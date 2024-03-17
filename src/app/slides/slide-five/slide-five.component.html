@@ -1,0 +1,10 @@
+<h2>Level Meter (RMS)</h2>
+<wac-prism language="javascript" ngPreserveWhitespaces
+    ><!-- htmlmin:ignore --><!-- prettier-ignore -->let value = 0;
+
+for (let i = 0; i &lt; channelData.length; i += 1) &lbrace;
+    value += channelData[i] ** 2;
+&rbrace;
+
+value = Math.sqrt(value / channelData.length);<!-- htmlmin:ignore --></wac-prism
+>

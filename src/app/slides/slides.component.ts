@@ -32,7 +32,11 @@ export class SlidesComponent implements OnDestroy, OnInit {
 
     private _routerEventsSubscription: null | Subscription;
 
-    constructor(private _activatedRoute: ActivatedRoute, private _router: Router, private _windowService: WindowService) {
+    constructor(
+        private _activatedRoute: ActivatedRoute,
+        private _router: Router,
+        private _windowService: WindowService
+    ) {
         this._index = 0;
         this._isPreferingReducedMotion = false;
         this._matchMediaQueryMatchSubscription = null;
@@ -88,7 +92,7 @@ export class SlidesComponent implements OnDestroy, OnInit {
     }
 
     private _goToNextSlide(): void {
-        if (this._index < 3) {
+        if (this._index < 27) {
             this._router.navigate([`${this._index + 1}`], { relativeTo: this._activatedRoute });
         }
     }

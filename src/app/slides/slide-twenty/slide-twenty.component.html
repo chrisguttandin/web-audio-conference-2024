@@ -1,0 +1,11 @@
+<h2>Level Meter (AW/AN)</h2>
+<wac-prism language="javascript" ngPreserveWhitespaces
+    ><!-- htmlmin:ignore --><!-- prettier-ignore -->output = new Float32Array(128); // in the class definition
+outputIndex = 0;
+// inside the process function
+this.output[this.outputIndex] = currentFrame;
+this.output[this.outputIndex + 1] = peak;
+this.output[this.outputIndex + 2] = squaredSum;
+outputs[0][0].set(this.output);
+this.outputIndex = (this.outputIndex + 4) % 128;<!-- htmlmin:ignore --></wac-prism
+>

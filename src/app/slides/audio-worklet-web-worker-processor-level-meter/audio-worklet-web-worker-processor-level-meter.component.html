@@ -1,0 +1,7 @@
+<!-- eslint-disable @angular-eslint/template/no-call-expression -->
+<div>
+    <canvas #canvas></canvas>
+    @if (showClicks()) {
+        clicks: {{ clicks() }}
+    }
+</div>

@@ -1,0 +1,47 @@
+<!-- eslint-disable @angular-eslint/template/no-call-expression -->
+<h2>Slide 6</h2>
+@if (sourceNode(); as sourceNode) {
+    <wac-analyser-node-level-meter
+        [levelSize]="levelSize()"
+        [peakSize]="peakSize()"
+        [smoothingTimeConstant]="smoothingTimeConstant()"
+        [sourceNode]="sourceNode"
+    ></wac-analyser-node-level-meter>
+    <wac-audio-worklet-post-message-processor-level-meter
+        [levelSize]="levelSize()"
+        [peakSize]="peakSize()"
+        [smoothingTimeConstant]="smoothingTimeConstant()"
+        [sourceNode]="sourceNode"
+    ></wac-audio-worklet-post-message-processor-level-meter>
+    <wac-audio-worklet-output-processor-level-meter
+        [levelSize]="levelSize()"
+        [peakSize]="peakSize()"
+        [smoothingTimeConstant]="smoothingTimeConstant()"
+        [sourceNode]="sourceNode"
+    ></wac-audio-worklet-output-processor-level-meter>
+    <wac-audio-worklet-web-worker-processor-level-meter
+        [levelSize]="levelSize()"
+        [peakSize]="peakSize()"
+        [smoothingTimeConstant]="smoothingTimeConstant()"
+        [sourceNode]="sourceNode"
+    ></wac-audio-worklet-web-worker-processor-level-meter>
+}
+<input
+    #levelSizeInput
+    (change)="levelSize.set(levelSizeInput.valueAsNumber)"
+    min="5"
+    max="15"
+    step="1"
+    type="range"
+    [value]="levelSize()"
+/>
+<input #peakSizeInput (change)="peakSize.set(peakSizeInput.valueAsNumber)" min="5" max="15" step="1" type="range" [value]="peakSize()" />
+<input
+    #smoothingTimeConstantInput
+    (change)="smoothingTimeConstant.set(smoothingTimeConstantInput.valueAsNumber)"
+    min="0"
+    max="1"
+    step="any"
+    type="range"
+    [value]="smoothingTimeConstant()"
+/>

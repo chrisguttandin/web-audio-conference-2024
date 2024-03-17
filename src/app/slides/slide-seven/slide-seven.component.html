@@ -1,0 +1,11 @@
+<h2>Level Meter (AnalyserNode)</h2>
+<wac-prism language="javascript" ngPreserveWhitespaces
+    ><!-- htmlmin:ignore --><!-- prettier-ignore -->const fftSize = 2048; // 32, 64, 128, ... 32768
+const analyserNode = new AnalyserNode(audioContext, &lbrace; fftSize &rbrace;);
+const data = new Float32Array(analyserNode.fftSize);
+
+sourceNode.connect(analyserNode);
+
+// on each animation frame
+analyserNode.getFloatTimeDomainData(data);<!-- htmlmin:ignore --></wac-prism
+>
