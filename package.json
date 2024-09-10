@@ -118,7 +118,7 @@
         "url": "https://github.com/chrisguttandin/web-audio-conference-2024.git"
     },
     "scripts": {
-        "prepare": "husky install",
+        "prepare": "husky",
         "test": "grunt lint && grunt test"
     },
     "version": "0.0.0"
