@@ -10,7 +10,6 @@ import { AudioWorkletOutputProcessorLevelMeterComponent } from '../audio-worklet
     changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [AudioWorkletPostMessageProcessorLevelMeterComponent, AudioWorkletOutputProcessorLevelMeterComponent],
     selector: 'wac-slide-twelve',
-    standalone: true,
     templateUrl: './slide-twelve.component.html'
 })
 export class SlideTwelveComponent {

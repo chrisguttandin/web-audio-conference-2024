@@ -9,7 +9,6 @@ import { AnalyserNodeLevelMeterComponent } from '../analyser-node-level-meter/an
     changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [AnalyserNodeLevelMeterComponent, AudioWorkletPostMessageProcessorLevelMeterComponent],
     selector: 'wac-slide-eight',
-    standalone: true,
     templateUrl: './slide-eight.component.html'
 })
 export class SlideEightComponent {

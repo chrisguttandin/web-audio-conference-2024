@@ -8,7 +8,6 @@ import { AudioWorkletWebWorkerProcessorLevelMeterComponent } from '../audio-work
     changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [AudioWorkletWebWorkerProcessorLevelMeterComponent],
     selector: 'wac-slide-twenty-four',
-    standalone: true,
     templateUrl: './slide-twenty-four.component.html'
 })
 export class SlideTwentyFourComponent {

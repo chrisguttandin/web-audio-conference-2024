@@ -18,7 +18,6 @@ import { AudioWorkletWebWorkerProcessorLevelMeterComponent } from '../audio-work
         AudioWorkletWebWorkerProcessorLevelMeterComponent
     ],
     selector: 'wac-slide-six',
-    standalone: true,
     templateUrl: './slide-six.component.html'
 })
 export class SlideSixComponent {
