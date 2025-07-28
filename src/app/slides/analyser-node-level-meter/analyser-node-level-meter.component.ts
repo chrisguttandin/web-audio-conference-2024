@@ -4,7 +4,6 @@ import { AnalyserNodeLevelMeterService } from '../../analyser-node-level-meter.s
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'wac-analyser-node-level-meter',
-    standalone: true,
     templateUrl: './analyser-node-level-meter.component.html'
 })
 export class AnalyserNodeLevelMeterComponent {

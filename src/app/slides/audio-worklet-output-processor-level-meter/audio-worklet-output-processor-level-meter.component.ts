@@ -4,7 +4,6 @@ import { AudioWorkletOutputProcessorLevelMeterService } from '../../audio-workle
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'wac-audio-worklet-output-processor-level-meter',
-    standalone: true,
     templateUrl: './audio-worklet-output-processor-level-meter.component.html'
 })
 export class AudioWorkletOutputProcessorLevelMeterComponent {

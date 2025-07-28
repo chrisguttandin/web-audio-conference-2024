@@ -113,7 +113,6 @@ self.onmessage = ({ data }) => {
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'wac-audio-worklet-web-worker-processor-level-meter',
-    standalone: true,
     templateUrl: './audio-worklet-web-worker-processor-level-meter.component.html'
 })
 export class AudioWorkletWebWorkerProcessorLevelMeterComponent implements OnDestroy {
